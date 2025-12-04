@@ -328,7 +328,13 @@ export default function ExpenseScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
+      <FlatList
+        data={activeTab === 'list' ? getDisplayedExpenses() : []}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={renderExpense}
+        contentContainerStyle={styles.scrollContent}
+        ListHeaderComponent={
+          <>
       <Text style={styles.heading}>Student Expense Tracker</Text>
 
       <View style={styles.tabBar}>
@@ -677,27 +683,23 @@ export default function ExpenseScreen() {
           <Text style={styles.xAxisLabel}>Day and date</Text>
         </View>
       ) : null}
-
-      <FlatList
-        data={activeTab === 'list' ? getDisplayedExpenses() : []}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={renderExpense}
+          </>
+        }
         ListEmptyComponent={
           activeTab === 'list' ? <Text style={styles.empty}>No expenses yet.</Text> : null
         }
+        ListFooterComponent={
+          <Text style={styles.footer}>
+            Enter your expenses and they'll be saved locally with SQLite.
+          </Text>
+        }
       />
-
-      <Text style={styles.footer}>
-        Enter your expenses and they'll be saved locally with SQLite.
-      </Text>
-      </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#111827' },
-  scrollView: { flex: 1 },
   scrollContent: { padding: 16 },
   heading: {
     fontSize: 24,
