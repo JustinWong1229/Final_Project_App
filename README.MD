@@ -6,5 +6,6 @@ Here are some of the prompts that I told Copilot:
 
 - Is it possible to make the color of the bar different colors based on the category, like food can be green and other categories will be different colors
 
-One suggestion I followed Copilot’s suggestion to abbreviate the labels on my x-axis, so the days are shortened and the chart looks less cluttered and easier to read.
+One suggestion I followed was Copilot’s suggestion to abbreviate the labels on my x-axis, so the days are shortened and the chart looks less cluttered and easier to read.
 
+One way that Copilot saved me time and effort was that I did not know how to make a bar graph using react, so being able to use Copiolot to help me make it, definitely saved me time and effort.
